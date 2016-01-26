@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"name": "getRolById",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.xedb.data.Rol"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "xeDB.json"
+}

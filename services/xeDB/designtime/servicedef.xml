@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="xeDB" class="com.xedb.XeDB" CRUDService="true" type="DataService" springFile="xeDB.spring.xml">
+    <operation operationType="hqlquery" name="getRolById">
+        <parameter name="id" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="com.xedb.data.Rol" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.xedb.data.Rol" supportsQuickData="true">
+            <element name="codrol" typeRef="java.lang.String" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element name="rol" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="rolUsuarios" typeRef="com.xedb.data.RolUsuario" isList="true" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.xedb.data.RolUsuario" supportsQuickData="true">
+            <element name="id" typeRef="com.xedb.data.RolUsuarioId" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element name="usuario" typeRef="com.xedb.data.Usuario" isList="false" allowNull="false"/>
+            <element name="rol" typeRef="com.xedb.data.Rol" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.xedb.data.Usuario" supportsQuickData="true">
+            <element name="usuario" typeRef="java.lang.String" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element name="nombre" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="pwd" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="rolUsuarios" typeRef="com.xedb.data.RolUsuario" isList="true" allowNull="true"/>
+        </dataobject
+>        <dataobject javaType="com.xedb.data.RolUsuarioId" name="id" supportsQuickData="false">
+            <element name="usuario" typeRef="java.lang.String" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element name="codrol" typeRef="java.lang.String" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+        </dataobject>
+    </dataobjects>
+</service>

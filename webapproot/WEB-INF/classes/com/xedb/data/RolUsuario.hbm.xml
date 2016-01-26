@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xedb.data.RolUsuario" table="ROL_USUARIO" schema="TEST" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.xedb.data.RolUsuarioId">
+            <key-property name="usuario" type="string">
+                <column name="USUARIO" length="20"/>
+            </key-property>
+            <key-property name="codrol" type="string">
+                <column name="CODROL" length="10"/>
+            </key-property>
+        </composite-id>
+        <many-to-one
+            name="usuario"
+            class="com.xedb.data.Usuario"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="USUARIO" length="20" not-null="true"/>
+        </many-to-one>
+        <many-to-one
+            name="rol"
+            class="com.xedb.data.Rol"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="CODROL" length="10" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
